@@ -31,7 +31,6 @@ pipeline {
       steps {
         withSonarQubeEnv('sonar-qube') {
             sh "mvn sonar:sonar \
-            -Dsonar.java.binaries=build/classes/java/ \
             -Dsonar.projectKey=$PROJECT_NAME"
         }
       }
