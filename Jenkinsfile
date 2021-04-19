@@ -26,7 +26,7 @@ pipeline {
       environment {
         SCANNER_HOME = tool 'sonarqube-scanner'
         ORGANIZATION = "Administrator"
-        PROJECT_NAME = "flask-app-python"
+        PROJECT_NAME = "maven-app"
       }
       steps {
         withSonarQubeEnv('sonar-qube') {
