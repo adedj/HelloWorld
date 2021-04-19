@@ -1,6 +1,9 @@
 pipeline {
 
   agent any
+    tools {
+      maven 'apache-maven-3.6.0'
+    }
     options {
       timeout(time: 1, unit: 'DAYS')
        disableConcurrentBuilds()
@@ -10,15 +13,6 @@ pipeline {
     stage('Checkout Version Control') {
       steps {
         checkout scm
-      }
-    }
-
-    stage('Initialize') {
-      steps {
-        sh '''
-          echo "PATH = ${PATH}"
-          echo "M2_HOME = ${M2_HOME}"
-          '''
       }
     }
 
