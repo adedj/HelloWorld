@@ -18,7 +18,6 @@ pipeline {
         sh "mvnw package"
         }
       }
-    }
 
     stage('SonarQube Code Scan') {
       environment {
