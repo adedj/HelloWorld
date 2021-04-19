@@ -54,6 +54,12 @@ pipeline {
   }
 }
 
+if (currentBuild.getBuildCauses().toString().contains('BranchIndexingCause')) {
+  print "INFO: Build skipped due to trigger being Branch Indexing"
+  currentBuild.result = 'ABORTED'
+  return
+}
+
 void setBuildStatus(String message, String state) {
   step([
       $class: "GitHubCommitStatusSetter",
